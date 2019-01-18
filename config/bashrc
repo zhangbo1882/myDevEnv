@@ -6,4 +6,4 @@ alias ll='ls -alF'
 alias la='ls -A'                                                                                                                                                           
 alias l='ls -CF' 
 
-export PS1=' \[\e[33m\][\d \t\[\e[33m\]] \[\e[35m\][#\##\[\e[35m\]] $(if [[ $? == 0 ]]; then echo "\[\e[36m\]:)"; else echo "\[\e[31m\]:("; fi)\[\e[0m\] \u \w $' 
+export PS1='\[\e[33m\][\d \t\[\e[33m\]]\[\e[35m\][#\##\[\e[35m\] \[\e[35m\]\u \w]$(if [[ $? == 0 ]]; then echo "\[\e[36m\]:-)"; else echo "\[\e[31m\]:-("; fi)\[\e[0m\]$'
