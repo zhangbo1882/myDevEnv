@@ -36,6 +36,8 @@ if [ $1 == "c" ]; then
 	ctags -L ctags.file --c-kinds=+cdefgmnpstuvx --fields=+niazS --extra=+q
 elif [ $1 == "go" ]; then
 	find . -name "*.go"  > cscope.file
+	cp cscope.file gotags.file
+	gotags -L gotags.file > tags
 elif [ $1 == "py" ]; then
 	find . -name "*.py"  > cscope.file
 elif [ $1 == "sh" ]; then
