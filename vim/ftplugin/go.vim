@@ -3,6 +3,8 @@
 " Maintainer:	David Barnett (https://github.com/google/vim-ft-go)
 " Last Change:	2014 Aug 16
 
+let g:go_def_mapping_enabled=0 " go-def key map will confilct with cscope
+
 if exists('b:did_ftplugin')
   finish
 endif
