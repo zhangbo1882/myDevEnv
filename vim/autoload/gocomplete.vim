@@ -1,0 +1,1 @@
+/home/bozhang/.vim/plugged/gocode/vim/autoload/gocomplete.vim
