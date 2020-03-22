@@ -19,7 +19,6 @@ Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/vim-scripts/winmanager--Fox'
 Plug 'https://github.com/WolfgangMehner/c-support.git'
 Plug 'https://github.com/WolfgangMehner/bash-support.git'
-Plug 'https://github.com/Lokaltog/vim-powerline.git'
 Plug 'https://github.com/fholgado/minibufexpl.vim.git'
 "Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'https://github.com/hari-rangarajan/CCTree.git'
@@ -27,9 +26,16 @@ Plug 'https://github.com/hari-rangarajan/CCTree.git'
 "Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
 " Multiple Plug commands can be written in a single line using | separators
 "Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'https://github.com/davidhalter/jedi-vim.git'
-Plug 'https://github.com/vim-syntastic/syntastic.git'
-
+"Plug 'https://github.com/davidhalter/jedi-vim.git'
+""Plug 'https://github.com/vim-syntastic/syntastic.git'
+Plug 'https://github.com/tpope/vim-fugitive' 
+Plug 'https://github.com/airblade/vim-gitgutter' 
+Plug 'https://github.com/mileszs/ack.vim' 
+Plug 'https://github.com/vim-airline/vim-airline' 
+Plug 'https://github.com/vim-airline/vim-airline-themes' 
+Plug 'https://github.com/terryma/vim-expand-region' 
+Plug 'https://github.com/Valloric/YouCompleteMe'
+Plug 'https://github.com/tenfyzhong/CompleteParameter.vim.git'
 " On-demand loading
 "Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 "Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -38,10 +44,9 @@ Plug 'https://github.com/vim-syntastic/syntastic.git'
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'fatih/vim-go', { 'tag': 'v1.21' }
 
 " Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -52,7 +57,9 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 
 " Initialize plugin system
 call plug#end()
-
+set expandtab
+set tabstop=4
+set shiftwidth=4
 set backspace=indent,eol,start "only for macos
 syntax on
 filetype plugin on
@@ -70,7 +77,7 @@ set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
 set showmatch "highlight matching braces
-
+set mouse=a "enable mouse
 "=============tagbar=====================
 let g:tagbar_left = 1
 "autocmd VimEnter * nested :call tagbar#autoopen(1)
@@ -100,37 +107,27 @@ au BufEnter /* call LoadCscope()
 "nmap <C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 "nmap <C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 
-nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 "================PowerLine===================================
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%y/%m/%d\ -\ %H:%M\")}
 set laststatus=2
 "=============WinManager======================================"
 let g:winManagerWindowLayout='FileExplorer|TagList'
-nmap wm :WMToggle<CR>:
+nmap wm :WMToggle<CR>
 
 "===========minibufexp===============================
-let g:miniBufExplBuffersNeeded = 1
+""let g:miniBufExplBuffersNeeded = 1
 
-"=========CtrlP======================================
-"let g:ctrlp_map = '<leader>p' "<leader> means '\'
-"let g:ctrlp_cmd = 'CtrlP'
-"map <leader>f :CtrlPMRU<CR>
-"let g:ctrlp_custom_ignore = {
-"    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-"    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc|o|d|ppt|sig)$',
-"    \ }
-"let g:ctrlp_working_path_mode='rw'
-"let g:ctrlp_by_filename=1
-"let g:ctrlp_match_window_bottom=1
-"let g:ctrlp_follow_symlinks=1
-
+"============indentLine=================================
+""let g:indentLine_enabled = 1
+""let g:indentLine_color_term = 239
 "============file type=================================
 augroup LANGUAGE
 	autocmd FileType c,cpp source ~/.vim/ftplugin/c.vim
@@ -140,3 +137,34 @@ augroup LANGUAGE
 	autocmd FileType js source ~/.vim/ftplugin/js.vim
 augroup end
 
+"=============airline================================
+"let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='deus'
+let g:airline#extensions#tabline#formatter='unique_tail'
+"============自动补全括号==========================="
+"imap ( ()<ESC>i
+"imap [ []<ESC>i
+"imap { {<CR>}<ESC>O
+
+"=====设置剪切板======================================
+"Leader is "\" in keyboard, the following two keymap is just copy/paste to system clipboard
+nmap <Leader>y "*yy    
+nmap <Leader>p "*p
+"===============folder method=========================
+set foldmethod=indent
+set foldlevelstart=99
+"===============vim expand region====================
+"Press + to expand the visual selection and _ to shrink it
+
+"===============rainbow setting===================
+"let g:rainbow_active = 1
+
+"=============YCM==================
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt = 0
+
+"============CompleteParameter==================
+inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
