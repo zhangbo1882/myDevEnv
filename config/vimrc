@@ -20,14 +20,7 @@ Plug 'https://github.com/vim-scripts/winmanager--Fox'
 Plug 'https://github.com/WolfgangMehner/c-support.git'
 Plug 'https://github.com/WolfgangMehner/bash-support.git'
 Plug 'https://github.com/fholgado/minibufexpl.vim.git'
-"Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'https://github.com/hari-rangarajan/CCTree.git'
-"Plug 'https://github.com/vim-scripts/taglist.vim.git'
-"Plug 'https://github.com/ludovicchabant/vim-gutentags.git'
-" Multiple Plug commands can be written in a single line using | separators
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-"Plug 'https://github.com/davidhalter/jedi-vim.git'
-""Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'https://github.com/tpope/vim-fugitive' 
 Plug 'https://github.com/airblade/vim-gitgutter' 
 Plug 'https://github.com/mileszs/ack.vim' 
@@ -36,24 +29,8 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/terryma/vim-expand-region' 
 Plug 'https://github.com/Valloric/YouCompleteMe'
 Plug 'https://github.com/tenfyzhong/CompleteParameter.vim.git'
-" On-demand loading
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
 Plug 'fatih/vim-go', { 'tag': 'v1.21' }
-
-" Plugin options
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-"Plug '~/my-prototype-plugin'
 
 " Initialize plugin system
 call plug#end()
